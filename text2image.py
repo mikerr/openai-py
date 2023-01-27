@@ -17,3 +17,4 @@ while True:
     yourdescription = input("Describe your image ?> ")
     image_url = getImage (yourdescription)
     webbrowser.open(image_url)
+    # note: url only valid for one hour
