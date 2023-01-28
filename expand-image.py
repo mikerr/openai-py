@@ -15,8 +15,9 @@ l_img = np.zeros((img_size,img_size,3), np.uint8)
 
 #place small image in middle of large frame
 
-x_offset=y_offset=50
-l_img[y_offset:y_offset+s_img.shape[0], x_offset:x_offset+s_img.shape[1]] = s_img
+x_offset= int(w / 2)
+y_offset= 0
+l_img[y_offset:y_offset + h, x_offset:x_offset + w] = s_img
 
 alpha = np.full((img_size,img_size), 255, dtype=np.uint8)
 result = np.dstack((l_img, alpha))
@@ -41,4 +42,3 @@ response = openai.Image.create_edit(
 image_url = response['data'][0]['url']
 print (image_url)
 webbrowser.open(image_url)
-
